@@ -1,0 +1,66 @@
+I am Glenride. As an organization built to transform scattered ideas into bold solutions, I am putting my manager hat on right now to help you build this.
+
+This is a highly viable product concept. The "continuity gap" between Android/Samsung devices and Apple computers is a massive friction point for professionals. While tools like Samsung Flow exist, they are heavily optimized for Windows ecosystems, leaving a wide-open market for a macOS solution.
+
+However, a quick moment of candor to ground our strategy in reality: building this for *Apple mobile devices* connecting to Macs is redundant. Apple already provides this exact functionality natively at the operating system level through Handoff, Continuity, and iMessage. Your competitive advantage—your "wedge"—is focusing strictly on solving this for **Samsung and other Android users** who are currently locked out of the seamless macOS ecosystem.
+
+Here is a ready-to-use Product Requirements Document (PRD) to anchor your build.
+
+---
+
+## PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+**Project Name:** OmniFlow for Mac (Working Title)
+
+**Product Concept:** A native macOS desktop application paired with an Android companion app that bridges the ecosystem gap, enabling seamless continuity between Samsung/Android devices and Mac computers.
+
+### 1. The Core Problem & Objective
+
+The modern device ecosystem is fragmented. Users who prefer Samsung or Android mobile devices but rely on Mac computers for their daily workflow face a severe "continuity tax." They are forced to constantly pick up their phones to check notifications, transfer photos via cumbersome cloud workarounds, and miss calls while wearing desktop headphones.
+
+**The Objective:** Provide a frictionless, secure, and native-feeling bridge for Mac users to interact with their Android mobile devices via direct Wi-Fi or Bluetooth, without routing data through third-party cloud servers.
+
+### 2. Target User Personas
+
+* **The Cross-Platform Professional:** Uses a MacBook Pro for software development, video editing, or design, but prefers a Samsung Galaxy phone. Needs to quickly drag and drop photos or reply to SMS without breaking desktop focus.
+* **The Multitasking Executive:** Managing back-to-back Zoom calls on a Mac while receiving crucial WhatsApp or text updates on an Android phone. Needs inline notifications and call routing routed directly to their desktop audio.
+
+### 3. System Architecture & Tech Stack
+
+To ensure the application feels native and doesn't drain the Mac's battery, we must avoid resource-heavy web wrappers (like Electron) where possible.
+
+* **Mac Application:** Swift and SwiftUI. This allows deep integration with the macOS Notification Center and ensures a lightweight CPU footprint.
+* **Mobile Companion App:** Kotlin (Android) designed for minimal background battery drain.
+* **Connectivity Protocol:** Direct Local Area Network (Wi-Fi) and Bluetooth Low Energy (BLE) handshakes.
+
+### 4. Core Functional Requirements (The Continuity Suite)
+
+#### Module A: Device Pairing & Connection
+
+* **REQ-1.1: Secure Pairing.** Users connect devices by scanning a QR code or confirming a PIN over a shared Wi-Fi network or Bluetooth pairing.
+* **REQ-1.2: Auto-Reconnect.** Once trusted, the devices automatically establish a background connection when in proximity and on the same network.
+
+#### Module B: Desktop Integration
+
+* **REQ-2.1: Native Notification Mirroring.** Push mobile notifications directly into the native macOS Notification Center.
+* **REQ-2.2: Universal Messaging.** Allow users to read and reply to SMS/MMS and supported third-party messaging apps (e.g., WhatsApp, Telegram) inline from the Mac desktop.
+* **REQ-2.3: Call Routing.** Accept, decline, and conduct cellular voice calls using the Mac's microphone and speakers.
+* **REQ-2.4: Wireless Photo Handoff.** A lightweight file-browser UI inside the Mac app to view the mobile device's camera roll and drag-and-drop images directly to the macOS desktop or Finder.
+* **REQ-2.5: Menu Bar Telemetry.** A small, unobtrusive Mac menu bar icon that displays the connected device’s battery percentage, charging status, and connection strength.
+
+### 5. Security & Guardrails (Crucial for User Trust)
+
+Because users are granting access to their personal messages and photos, privacy must be a core feature, not an afterthought.
+
+* **Zero-Cloud Processing:** All data transfer (messages, photos, contacts) must happen locally via Wi-Fi Direct or Bluetooth. Zero personal data is routed through or stored on external cloud servers.
+* **Strict Permissions Transparency:** The Android mobile app must clearly explain why it is requesting Notification Access, Contacts, and Phone permissions, providing a toggle menu for users to opt out of specific features (e.g., allowing file transfers but disabling call routing).
+
+### 6. Recommended MVP Phase 1 Scope
+
+Do not try to build the file-transfer, calling, and messaging features all at once. Build the core connection pipeline first.
+
+1. Get the local Wi-Fi pairing and the **macOS Notification Mirroring** working flawlessly.
+2. Add the **Menu Bar Battery indicator**.
+
+Once users experience the magic of getting their Android alerts quietly on their Mac screen, you can release updates that introduce two-way texting and photo drag-and-drop capabilities.
+

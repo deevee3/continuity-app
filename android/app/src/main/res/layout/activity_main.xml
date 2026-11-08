@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OmniFlow Companion"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: Active"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Permission Explanation Section -->
+    <TextView
+        android:id="@+id/tv_permissions_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Permissions &amp; Privacy"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tv_permissions_explain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OmniFlow mirrors your phone's notifications and battery status to your Mac over a direct local connection. No data is sent to external servers. You can toggle individual features below."
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Notification Mirroring Toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification Mirroring"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sends notification titles and content to your Mac. Requires Notification Access permission."
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switch_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+    </LinearLayout>
+
+    <!-- Notification Access Status -->
+    <TextView
+        android:id="@+id/tv_notif_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification Access: Not Granted"
+        android:textSize="12sp"
+        android:textColor="#CC0000"
+        android:layout_marginBottom="4dp" />
+
+    <Button
+        android:id="@+id/btn_request_notif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grant Notification Access"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Battery Telemetry Toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Battery Telemetry"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shares your phone's battery level and charging status with the Mac menu bar. No special permissions required."
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switch_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+    </LinearLayout>
+
+    <!-- Privacy Footer -->
+    <TextView
+        android:id="@+id/tv_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔒 Zero-Cloud: All data stays on your local network. Nothing is uploaded to external servers."
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

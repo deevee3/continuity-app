@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OmniFlow Companion</string>
+    <string name="notification_service_name">OmniFlow Notification Listener</string>
+</resources>
